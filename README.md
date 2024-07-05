@@ -528,3 +528,163 @@ public class conexion {
         }
     }
 }
+
+//Lectura del alumno
+
+package logica;
+
+import conexion.conexion;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+public class alumno {
+    private final String SQLInsertar = "INSERT INTO alumno (Nif,Nombre,Apellidos,Grupo) values(?,?,?,?)";
+    private PreparedStatement PS;
+    private final conexion CN;
+    
+    public alumno (){
+        PS = null;
+        CN = new conexion();
+    }
+    
+    public int insertarDatos(int Nif, String Nombre, String Apellidos, String Grupo){
+        try{
+            PS = CN.getConnection().prepareStatement(SQLInsertar);
+            PS.setInt(1, Nif);
+            PS.setString(2, Nombre);
+            PS.setString(3, Apellidos);
+            PS.setString(4, Grupo);
+            int res=PS.executeUpdate();
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Registro Guardado..");
+            }
+        } catch (SQLException e){
+            System.err.println("Error al guardar los datos en la base: " + e.getMessage());
+        }finally{
+            PS = null;
+            CN.close();
+        }
+        return 0;
+    }
+}
+
+//Lectura del Profesor 
+package logica;
+
+import conexion.conexion;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+public class alumno {
+    private final String SQLInsertar = "INSERT INTO alumno (Nif,Nombre,Apellidos,Grupo) values(?,?,?,?)";
+    private PreparedStatement PS;
+    private final conexion CN;
+    
+    public alumno (){
+        PS = null;
+        CN = new conexion();
+    }
+    
+    public int insertarDatos(int Nif, String Nombre, String Apellidos, String Grupo){
+        try{
+            PS = CN.getConnection().prepareStatement(SQLInsertar);
+            PS.setInt(1, Nif);
+            PS.setString(2, Nombre);
+            PS.setString(3, Apellidos);
+            PS.setString(4, Grupo);
+            int res=PS.executeUpdate();
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Registro Guardado..");
+            }
+        } catch (SQLException e){
+            System.err.println("Error al guardar los datos en la base: " + e.getMessage());
+        }finally{
+            PS = null;
+            CN.close();
+        }
+        return 0;
+    }
+}
+
+//Lectura de un examen
+
+package logica;
+
+import conexion.conexion;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+public class Examen {
+    private final String SQLInsertar = "INSERT INTO alumno (Nif,Titulo,NumeroDePreguntas,FechaDeRealizacion) values(?,?,?,?)";
+    private PreparedStatement PS;
+    private final conexion CN;
+    
+    public Examen (){
+        PS = null;
+        CN = new conexion();
+    }
+    
+    public int insertarDatos(int Nif, String Titulo, int NumeroDePreguntas, String FechaDeRealizacion){
+        try{
+            PS = CN.getConnection().prepareStatement(SQLInsertar);
+            PS.setInt(1, Nif);
+            PS.setString(2, Titulo);
+            PS.setInt(3, NumeroDePreguntas);
+            PS.setString(4, FechaDeRealizacion);
+            int res=PS.executeUpdate();
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Registro Guardado..");
+            }
+        } catch (SQLException e){
+            System.err.println("Error al guardar los datos en la base: " + e.getMessage());
+        }finally{
+            PS = null;
+            CN.close();
+        }
+        return 0;
+    }
+}
+
+//Resultado de la prueba
+
+package logica;
+
+import conexion.conexion;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+public class Practica {
+    private final String SQLInsertar = "INSERT INTO practica (Nif,Nota,FechaDeRealizacion,GradoDeDificultad,Titulo) values(?,?,?,?,?)";
+    private PreparedStatement PS;
+    private final conexion CN;
+    
+    public Practica (){
+        PS = null;
+        CN = new conexion();
+    }
+    
+    public int insertarDatos(int Nif, String Nota, String FechaDeRealizacion, String GradoDeDificultad, String Titulo){
+        try{
+            PS = CN.getConnection().prepareStatement(SQLInsertar);
+            PS.setInt(1, Nif);
+            PS.setString(2, Nota);
+            PS.setString(3, FechaDeRealizacion);
+            PS.setString(4, GradoDeDificultad);
+            PS.setString(5, Titulo);
+            int res=PS.executeUpdate();
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Registro Guardado..");
+            }
+        } catch (SQLException e){
+            System.err.println("Error al guardar los datos en la base: " + e.getMessage());
+        }finally{
+            PS = null;
+            CN.close();
+        }
+        return 0;
+    }
+}
